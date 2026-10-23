@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./libs/schema"
+    },
+    {
+      "path": "./apps/chrome-extension"
     }
   ]
 }
