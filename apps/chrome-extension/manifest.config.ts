@@ -5,7 +5,13 @@ export default defineManifest({
   manifest_version: 3,
   name: 'Phylactery',
   version: pkg.version,
-  action: {
-    default_popup: 'index.html',
+  action: {},
+  side_panel: {
+    default_path: 'index.html',
   },
+  background: {
+    service_worker: 'src/background/index.ts',
+    type: 'module',
+  },
+  permissions: ['sidePanel'],
 });

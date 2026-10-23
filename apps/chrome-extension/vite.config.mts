@@ -2,7 +2,9 @@
 import { defineConfig } from 'vite';
 import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin';
 import { crx } from '@crxjs/vite-plugin';
-import manifest from './manifest.config';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import manifest from './manifest.config.ts';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -15,7 +17,7 @@ export default defineConfig(() => ({
     port: 4300,
     host: 'localhost',
   },
-  plugins: [nxReadySignal(), crx({ manifest })],
+  plugins: [nxReadySignal(), react(), tailwindcss(), crx({ manifest })],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],
