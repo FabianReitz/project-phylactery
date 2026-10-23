@@ -17,7 +17,17 @@ export default defineConfig(() => ({
     port: 4300,
     host: 'localhost',
   },
-  plugins: [nxReadySignal(), react(), tailwindcss(), crx({ manifest })],
+  plugins: [
+    nxReadySignal(),
+    react(),
+    tailwindcss(),
+    crx({
+      manifest,
+      contentScripts: {
+        standaloneFiles: ['src/content/main-world.ts', 'src/content/bridge.ts'],
+      },
+    }),
+  ],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],
