@@ -1,6 +1,8 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin';
+import { crx } from '@crxjs/vite-plugin';
+import manifest from './manifest.config';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -13,7 +15,7 @@ export default defineConfig(() => ({
     port: 4300,
     host: 'localhost',
   },
-  plugins: [nxReadySignal()],
+  plugins: [nxReadySignal(), crx({ manifest })],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],
